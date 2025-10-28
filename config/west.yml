@@ -14,7 +14,7 @@ manifest:
     - name: zmk
       remote: zmkfirmware
       import: app/west.yml
-    - name: trex_shield
+    - name: trex_shield_module
       remote: trex_shield_module
       revision: main
     - name: zmk-locales
