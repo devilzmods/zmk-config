@@ -1,8 +1,0 @@
-#include <physical_layouts.dtsi>
-#include <layouts/common/ortho_5x12/all1u.dtsi>
-
-&layout_ortho_5x12_all1u {
-    transform = <&default_transform>;
-    kscan = <&kscan0>;
-};
-
