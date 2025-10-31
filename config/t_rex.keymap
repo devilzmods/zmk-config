@@ -56,14 +56,18 @@
         control {
             display-name = "Control";
             bindings = <
-                &bootloader &trans      &trans      &trans      &trans      &trans &trans &trans &trans &trans &trans &trans
-                &sys_reset  &out OUT_TOG &bt BT_CLR &bt BT_PRV &bt BT_NXT   &trans &trans &trans &trans &trans &trans &trans
-                &trans      &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &trans   &trans &trans &trans &trans &trans &trans &rgb_ug RGB_TOG
-                &trans      &trans      &trans      &trans      &trans      &trans &trans &trans &trans &trans &trans &trans
-                &trans      &trans      &trans      &trans      &trans      &trans &trans &trans &trans &trans &trans &trans
+                &bootloader &trans      &trans      &trans      &trans      &trans &trans &trans &trans           &trans          &trans          &trans
+                &sys_reset  &out OUT_TOG &bt BT_CLR &bt BT_PRV &bt BT_NXT   &trans &trans &trans &trans           &trans          &trans          &trans
+                &trans      &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &trans   &trans &trans &trans &trans           &trans          &trans          &rgb_ug RGB_TOG
+                &trans      &trans      &trans      &trans      &trans      &trans &trans &trans &trans           &trans          &trans          &trans
+                &trans      &trans      &trans      &trans      &trans      &trans &trans &trans &rgb_ug RGB_HUD  &rgb_ug RGB_BRD &rgb_ug RGB_BRI &rgb_ug RGB_HUI
             >;
         };
     };
+};
+
+&led_strip {
+    chain-length = <12>;
 };
 
 / {

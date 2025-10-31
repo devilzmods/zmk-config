@@ -21,6 +21,6 @@
 include:
   - board: nice_nano_v2
     shield: t_rex
-    snippet: zmk-usb-logging #studio-rpc-usb-uart
+    snippet: studio-rpc-usb-uart #zmk-usb-logging 
     cmake-args: -DCONFIG_ZMK_STUDIO=y
     artifact-name: t_rex_with_studio
