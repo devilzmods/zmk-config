@@ -24,3 +24,6 @@ include:
     snippet: studio-rpc-usb-uart #zmk-usb-logging 
     cmake-args: -DCONFIG_ZMK_STUDIO=y
     artifact-name: t_rex_with_studio
+  - board: nice_nano_v2
+    shield: pain27
+    artifact-name: pain27_nn

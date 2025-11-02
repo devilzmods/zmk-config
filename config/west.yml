@@ -8,6 +8,8 @@ manifest:
       url-base: https://github.com/devilzmods/
     - name: zmk-locales
       url-base: https://github.com/joelspadin/
+    - name: pain27
+      url-base: https://github.com/paaradiso/
     # Additional modules containing boards/shields/custom code can be listed here as well
     # See https://docs.zephyrproject.org/3.2.0/develop/west/manifest.html#projects
   projects:
@@ -19,6 +21,9 @@ manifest:
       revision: main
     - name: zmk-locales
       remote: zmk-locales
+      revision: main
+    - name: pain27
+      remote: pain27
       revision: main
   self:
     path: config
