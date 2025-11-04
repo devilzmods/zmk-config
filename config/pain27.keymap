@@ -2,6 +2,7 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/rgb.h>
+#include <locale/keys_de.h>         // https://github.com/joelspadin/zmk-locales/blob/main/include/locale/keys_de.h
 
 / {
 	chosen {
@@ -21,20 +22,22 @@
     
     combos {
     compatible = "zmk,combos";
-        //      0       1       2       3       4       5       6       7       8       9          
-        //  |    - ESC -    |   W   |   E   |       |       |       |       |    - BKSP -   |
+        //  |    - ESC -    |   W   |   E   |   - CTRL Z -  |       |       |    - BKSP -   |
         //  |       |       |   W   |   E   |       |       |       |    - DEL -    |       |
-        //       10      11      12      13      14      15      16      17      18          
+        //      0       1       2       3       4       5       6       7       8       9     
+
         //    |    - TAB -    |       |       |   - LEFT -    |     - UP -    |       |
-        //    |       |       |   S   |       |       |    - DOWN -   |   - RIGHT -   |
-        //             19     20      21      22      23      24      25     
-        //        |    - LGUI-    |   X   |       |       |       |       |
-        //        |       |       |   X   |       |       |    - RET -    |
+        //    |   A   |   S   |   D   |       |       |    - DOWN -   |   - RIGHT -   |
+        //        10      11      12      13      14      15      16      17      18        
+
+        //        |   - CTRL X-   |   - CTRL V -  |       |       |       |
+        //        |       |   - CTRL C -  |       |       |    - RET -    |
+        //             19     20      21      22      23      24      25
         combo_del {
-          timeout-ms = <30>;
-          key-positions = <7 8>;
-          bindings = <&kp DEL>;
-          layers = <0 1 2>;
+            timeout-ms = <30>;
+            key-positions = <7 8>;
+            bindings = <&kp DEL>;
+            layers = <0 1 2>;
         };
         combo_bspc {
             timeout-ms = <30>;
@@ -48,12 +51,7 @@
             bindings = <&kp TAB>;
             layers = <0 1 2>;
         };
-        combo_esc {
-            timeout-ms = <30>;
-            key-positions = <0 1>;
-            bindings = <&kp ESC>;
-            layers = <0 1 2>;
-        };
+        
         combo_apos {
             //        |  L    |
             //  |   M   |
@@ -112,6 +110,64 @@
             bindings = <&mo 2>;
             layers = <0>;
         };
+
+        //Mine
+        combo_esc {
+            timeout-ms = <30>;
+            key-positions = <0 1>;
+            bindings = <&kp ESC>;
+            layers = <0 1 2>;
+        };
+        combo_ctrlZ {
+            timeout-ms = <30>;
+            key-positions = <4 5>;
+            bindings = <&kp LC(DE_Z)>;
+            layers = <0>;
+        };
+        combo_ctrlX {
+            timeout-ms = <30>;
+            key-positions = <19 20>;
+            bindings = <&kp LC(X)>;
+            layers = <0>;
+        };
+        combo_ctrlC {
+            timeout-ms = <30>;
+            key-positions = <20 21>;
+            bindings = <&kp LC(C)>;
+            layers = <0>;
+        };
+        combo_ctrlV {
+            timeout-ms = <30>;
+            key-positions = <21 22>;
+            bindings = <&kp LC(V)>;
+            layers = <0>;
+        };
+
+        //Umlauts
+        combo_ae {
+            timeout-ms = <40>;
+            key-positions = <10 2>;
+            bindings = <&kp DE_A_UMLAUT>;
+            layers = <0>;
+        };
+        combo_oe {
+            timeout-ms = <40>;
+            key-positions = <9 2>;
+            bindings = <&kp DE_O_UMLAUT>;
+            layers = <0>;
+        };
+        combo_ue {
+            timeout-ms = <40>;
+            key-positions = <6 2>;
+            bindings = <&kp DE_U_UMLAUT>;
+            layers = <0>;
+        };
+        combo_sz {
+            timeout-ms = <40>;
+            key-positions = <11 5>;
+            bindings = <&kp DE_SZ>;
+            layers = <0>;
+        };
     };
 
 
@@ -129,13 +185,13 @@
             >;
         };
         n_layer {
-            // |    1   |   2   |   3   |   4   |   5   |   6   |   7   |   8   |   9   |   0   |
-            // |   F1   |  F2   |  F3   |  F4   |  F5   |  F6   |       |       |RGB SET|
-            // |   F7   |  F8   |  F9   |  F10  |  F11  |  F12  | RGB TG|
+            // |   1   |   2   |   3   |   4   |   5   |   6   |   7   |   8   |   9   |   0   |
+            //   |   4   |   5   |   6   |   *   |  F5   |  F6   |   ?   |   +   |   #   |
+            //       |SHIFT/7|   8   |   9   |   0   |   ,   |   .   |   -   |
             bindings = <
-                &kp N1  &kp N2  &kp N3  &kp N4  &kp N5  &kp N6  &kp N7 &kp N8 &kp N9 &kp N0
-                &kp F1  &kp F2  &kp F3  &kp F4  &kp F5  &kp F6  &trans &trans &rgb_ug RGB_COLOR_HSB(128,100,100)
-                &kp F7  &kp F8  &kp F9  &kp F10 &kp F11 &kp F12 &rgb_ug RGB_TOG
+                &kp N1  &kp N2  &kp N3  &kp N4   &kp N5   &kp N6   &kp N7   &kp N8   &kp N9  &kp N0
+                &kp N4  &kp N5  &kp N6 &kp DE_STAR &kp F5 &kp F6  &kp DE_QMARK &kp DE_PLUS &kp DE_HASH
+            &hm LSHIFT N7 &kp N8 &kp N9 &kp N0   &kp COMMA &kp DOT &kp DE_MINUS
                                                &trans
             >;
         };
